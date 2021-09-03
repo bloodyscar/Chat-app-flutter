@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "723569390132",
+    "project_id": "chatapp-adithrw",
+    "storage_bucket": "chatapp-adithrw.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:723569390132:android:3f5587bc430069be2e1061",
+        "android_client_info": {
+          "package_name": "com.adithrw.chatapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "723569390132-npo395psbrpm4fgvi7kisnhijhurpe3o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.adithrw.chatapp",
+            "certificate_hash": "a65954eff18a83ab0266ad7da67d36f717a4b6f7"
+          }
+        },
+        {
+          "client_id": "723569390132-r84lm6k91q5d4b851r6p1l3et8kdi84m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAJv_GiaCAcG5Zq_f4qVVbuIeru5eUC2o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "723569390132-r84lm6k91q5d4b851r6p1l3et8kdi84m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
