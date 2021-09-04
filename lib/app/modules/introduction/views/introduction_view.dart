@@ -1,3 +1,4 @@
+import 'package:chatapp/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -17,7 +18,7 @@ class IntroductionView extends GetView<IntroductionController> {
           body: "Kamu hanya perlu di rumah saja untuk mendapatkan teman baru.",
           image: Container(
             width: Get.width * 0.6,
-            height: Get.height * 0.6,
+            height: Get.width * 0.6,
             child: Center(
               child: Lottie.asset("assets/lottie/main-laptop-duduk.json"),
             ),
@@ -29,11 +30,9 @@ class IntroductionView extends GetView<IntroductionController> {
               "Jika kamu memang jodoh karena aplikasi ini, kami sangat bahagia.",
           image: Container(
             width: Get.width * 0.6,
-            height: Get.height * 0.6,
+            height: Get.width * 0.6,
             child: Center(
-              child: Lottie.asset(
-                "assets/lottie/ojek.json",
-              ),
+              child: Lottie.asset("assets/lottie/ojek.json"),
             ),
           ),
         ),
@@ -42,11 +41,9 @@ class IntroductionView extends GetView<IntroductionController> {
           body: "Kamu tidak perlu khawatir, aplikasi ini bebas biaya apapun.",
           image: Container(
             width: Get.width * 0.6,
-            height: Get.height * 0.6,
+            height: Get.width * 0.6,
             child: Center(
-              child: Lottie.asset(
-                "assets/lottie/payment.json",
-              ),
+              child: Lottie.asset("assets/lottie/payment.json"),
             ),
           ),
         ),
@@ -56,24 +53,21 @@ class IntroductionView extends GetView<IntroductionController> {
               "Daftarkan diri kamu untuk menjadi bagian dari kami. Kami akan menghubungkan dengan 1000 teman lainnya.",
           image: Container(
             width: Get.width * 0.6,
-            height: Get.height * 0.6,
+            height: Get.width * 0.6,
             child: Center(
-              child: Lottie.asset(
-                "assets/lottie/register.json",
-              ),
+              child: Lottie.asset("assets/lottie/register.json"),
             ),
           ),
         ),
       ],
-      onDone: () {},
-      onSkip: () {},
+      onDone: () => Get.offAllNamed(Routes.HOME),
       showSkipButton: true,
       skip: Text("Skip"),
       next: Text(
         "Next",
         style: TextStyle(fontWeight: FontWeight.bold),
       ),
-      done: const Text("Done", style: TextStyle(fontWeight: FontWeight.w600)),
+      done: const Text("Login", style: TextStyle(fontWeight: FontWeight.w600)),
     ));
   }
 }
