@@ -1,4 +1,5 @@
 import 'package:avatar_glow/avatar_glow.dart';
+import 'package:chatapp/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -73,7 +74,9 @@ class ProfileView extends GetView<ProfileController> {
                           style: TextStyle(fontSize: 16),
                         ),
                         IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.toNamed(Routes.UPDATE_STATUS);
+                          },
                           icon: Icon(Icons.chevron_right),
                         )
                       ],
