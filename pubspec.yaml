@@ -2,10 +2,10 @@ name: chatapp
 version: 1.0.0+1
 publish_to: none
 description: A new Flutter project.
-environment:
-  sdk: ">=2.12.0 <3.0.0"
+environment: 
+  sdk: '>=2.12.0 <3.0.0'
 
-dependencies:
+dependencies: 
   cupertino_icons: ^1.0.2
   get: 4.3.8
   firebase_core: 1.5.0
@@ -13,15 +13,17 @@ dependencies:
   firebase_auth: ^3.0.2
   lottie: 1.1.0
   introduction_screen: ^2.1.0
-  flutter:
+  avatar_glow: 2.0.1
+  flutter: 
     sdk: flutter
 
-dev_dependencies:
-  flutter_test:
+dev_dependencies: 
+  flutter_test: 
     sdk: flutter
 
-flutter:
-  uses-material-design: true
-  assets:
+flutter: 
+  assets: 
     - assets/lottie/
     - assets/logo/
+  uses-material-design: true
+
