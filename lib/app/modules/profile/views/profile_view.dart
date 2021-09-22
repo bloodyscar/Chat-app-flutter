@@ -1,4 +1,5 @@
 import 'package:avatar_glow/avatar_glow.dart';
+import 'package:chatapp/app/controllers/auth_controller.dart';
 import 'package:chatapp/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 
@@ -7,6 +8,7 @@ import 'package:get/get.dart';
 import '../controllers/profile_controller.dart';
 
 class ProfileView extends GetView<ProfileController> {
+  final authC = Get.find<AuthController>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,13 +16,17 @@ class ProfileView extends GetView<ProfileController> {
           backgroundColor: Colors.grey.shade50,
           elevation: 0,
           leading: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Get.offAllNamed(Routes.HOME);
+            },
             icon: Icon(Icons.arrow_back),
             color: Colors.black,
           ),
           actions: [
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                authC.logout();
+              },
               icon: Icon(
                 Icons.logout,
                 color: Colors.black,
@@ -36,26 +42,33 @@ class ProfileView extends GetView<ProfileController> {
               duration: Duration(seconds: 2),
               child: Center(
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(100),
-                  child: Image(
-                    image: AssetImage("assets/logo/noimage.png"),
-                    width: 150,
-                  ),
+                  borderRadius: BorderRadius.circular(200),
+                  child: authC.userModel.value.photoUrl == null
+                      ? Image(
+                          image: AssetImage("assets/logo/noimage.png"),
+                          width: 150,
+                          fit: BoxFit.cover,
+                        )
+                      : Image(
+                          image: NetworkImage(authC.userModel.value.photoUrl!),
+                          width: 150,
+                          fit: BoxFit.cover,
+                        ),
                 ),
               ),
             ),
             SizedBox(
-              height: 30,
+              height: 10,
             ),
             Text(
-              "Adit Hernowo",
+              "${authC.userModel.value.name}",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
             ),
             SizedBox(
               height: 10,
             ),
             Text(
-              "loremipsum@gmail.com",
+              "${authC.userModel.value.email}",
               style: TextStyle(fontSize: 16),
             ),
             SizedBox(
@@ -92,11 +105,16 @@ class ProfileView extends GetView<ProfileController> {
                           style: TextStyle(fontSize: 16),
                         ),
                         IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.toNamed(Routes.CHANGE_PROFILE);
+                          },
                           icon: Icon(Icons.chevron_right),
                         )
                       ],
                     ),
+                  ),
+                  SizedBox(
+                    height: 10,
                   ),
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 30),
@@ -107,10 +125,13 @@ class ProfileView extends GetView<ProfileController> {
                           "Change Theme",
                           style: TextStyle(fontSize: 16),
                         ),
-                        IconButton(
-                          onPressed: () {},
-                          icon: Icon(Icons.chevron_right),
-                        )
+                        TextButton(
+                            onPressed: () {},
+                            child: Text(
+                              "Light",
+                              style:
+                                  TextStyle(color: Colors.grey, fontSize: 12),
+                            ))
                       ],
                     ),
                   ),

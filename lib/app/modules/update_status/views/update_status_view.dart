@@ -1,3 +1,4 @@
+import 'package:chatapp/app/controllers/auth_controller.dart';
 import 'package:chatapp/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 
@@ -6,8 +7,10 @@ import 'package:get/get.dart';
 import '../controllers/update_status_controller.dart';
 
 class UpdateStatusView extends GetView<UpdateStatusController> {
+  final authC = Get.find<AuthController>();
   @override
   Widget build(BuildContext context) {
+    controller.statusC.text = authC.userModel.value.status!;
     return Scaffold(
         appBar: AppBar(
           leading: IconButton(
@@ -25,6 +28,7 @@ class UpdateStatusView extends GetView<UpdateStatusController> {
           child: Column(
             children: [
               TextField(
+                controller: controller.statusC,
                 cursorColor: Colors.black,
                 decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -48,7 +52,9 @@ class UpdateStatusView extends GetView<UpdateStatusController> {
                       primary: Colors.green.shade800,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20))),
-                  onPressed: () {},
+                  onPressed: () {
+                    authC.updateStatus(controller.statusC.text);
+                  },
                   child: Text("UPDATE"),
                 ),
               )
